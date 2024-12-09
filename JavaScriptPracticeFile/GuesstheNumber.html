@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTN</title>
+</head>
+<body>
+    <h1>Guess The Number</h1>
+    <input type="text" id="input" required>
+    <button onclick="check()">check</button>
+    <h2>Result</h2>
+    <p id="Result"></p>
+    <span>
+        <h3>Score</h3>
+        <p id="score">10</p>
+    </span>
+    <script>
+        var input = document.getElementById("input");
+        var score = 10;
+        
+        function check(){
+            var num = Number(input.value);
+            var random = Math.floor((Math.random())*10)
+            if(num==random){
+                document.getElementById("Result").textContent = "Right"
+                alert("You Won..!")
+            }else{
+                document.getElementById("Result").textContent = "Wrong";
+                score--;
+                document.getElementById("score").textContent = score;
+                if(score==0){
+                    alert("Game Over...!")
+                }
+            }
+        }
+    </script>
+</body>
+</html>
